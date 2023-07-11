@@ -3,6 +3,7 @@ import Loading from "../assets/Loading";
 import PlayerOverviewCard from "./PlayerOverviewCard";
 
 import { API_KEY } from "../config";
+import { API_teamRosterUrl } from "../config";
 
 function TeamRosterList({ team }) {
   const [roster, setRoster] = useState([]);
@@ -12,9 +13,7 @@ function TeamRosterList({ team }) {
     if (!team) return;
     async function fetchTeamRoster() {
       setIsLoading(true);
-      const res = await fetch(
-        `https://api.sportsdata.io/v3/nba/scores/json/Players/${team}?key=${API_KEY}`
-      );
+      const res = await fetch(`${API_teamRosterUrl(team, API_KEY)}`);
       const data = await res.json();
       setRoster(data);
       setIsLoading(false);

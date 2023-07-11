@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Box, TextField, MenuItem } from "@mui/material";
-import { API_KEY } from "../config";
+import { API_KEY, API_teamListUrl } from "../config";
 
 function SelectTeamInput({ handleTeamInput }) {
   const [teamList, setTeamList] = useState([]);
@@ -10,9 +10,7 @@ function SelectTeamInput({ handleTeamInput }) {
 
   useEffect(() => {
     async function fetchTeamList() {
-      const res = await fetch(
-        `https://api.sportsdata.io/v3/nba/scores/json/teams?key=${API_KEY}`
-      );
+      const res = await fetch(`${API_teamListUrl(API_KEY)}`);
       const data = await res.json();
       setTeamList(data);
     }
