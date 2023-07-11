@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import SelectTeamInput from "./user_inputs/SelectTeamInput.js";
+import TeamRosterList from "./components/TeamRosterList.js";
 
-function App() {
+export const API_KEY = "2420fbc33e5849b18bb9b99594e662eb";
+
+export default function App() {
+  const [team, setTeam] = useState("");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <SelectTeamInput handleTeamInput={setTeam} />
+      {team && <TeamRosterList team={team} />}
+    </>
   );
 }
-
-export default App;
