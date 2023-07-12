@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import Loading from "../assets/Loading";
 import PlayerOverviewCard from "./PlayerOverviewCard";
 
-import { API_KEY } from "../config";
-import { API_teamRosterUrl } from "../config";
+import { API_KEY, API_teamRosterUrl } from "../config";
 
 function TeamRosterList({ team }) {
   const [roster, setRoster] = useState([]);

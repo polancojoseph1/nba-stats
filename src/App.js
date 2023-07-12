@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import SelectTeamInput from "./user_inputs/SelectTeamInput.js";
 import TeamRosterList from "./components/TeamRosterList.js";
 
