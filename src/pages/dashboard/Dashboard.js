@@ -5,7 +5,10 @@ import TeamRosterList from "./components/TeamRosterList";
 function Dashboard() {
   const [team, setTeam] = useState("");
 
-  useEffect(() => (document.title = team), [team]);
+  useEffect(() => {
+    if (!team) return;
+    document.title = `Team: ${team}`;
+  }, [team]);
 
   return (
     <>
