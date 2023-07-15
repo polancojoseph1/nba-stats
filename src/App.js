@@ -1,14 +1,9 @@
 import { useState } from "react";
-import SelectTeamInput from "./user_inputs/SelectTeamInput.js";
-import TeamRosterList from "./components/TeamRosterList.js";
+import Dashboard from "./pages/dashboard/Dashboard.js";
+import LandingPage from "./pages/login/LandingPage.js";
 
 export default function App() {
-  const [team, setTeam] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
-  return (
-    <>
-      <SelectTeamInput handleTeamInput={setTeam} />
-      {team && <TeamRosterList team={team} />}
-    </>
-  );
+  return <div>{isLoggedIn ? <Dashboard /> : <LandingPage />}</div>;
 }

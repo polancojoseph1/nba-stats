@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Box, TextField, MenuItem } from "@mui/material";
-import { API_KEY, API_teamListUrl } from "../config";
+import { fetchTeamList } from "../../../config";
 
 function SelectTeamInput({ handleTeamInput }) {
   const [teamList, setTeamList] = useState([]);
@@ -9,14 +9,14 @@ function SelectTeamInput({ handleTeamInput }) {
   console.log(teamList, selectedTeam);
 
   useEffect(() => {
-    async function fetchTeamList() {
-      const res = await fetch(`${API_teamListUrl(API_KEY)}`);
+    async function getTeamList() {
+      const res = await fetchTeamList();
       const data = await res.json();
       setTeamList(data);
     }
     handleTeamInput(selectedTeam);
 
-    fetchTeamList();
+    getTeamList();
   }, [handleTeamInput, selectedTeam]);
 
   return (

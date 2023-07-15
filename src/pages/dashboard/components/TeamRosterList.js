@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import Loading from "../assets/Loading";
-import PlayerOverviewCard from "./PlayerOverviewCard";
-
-import { API_KEY, API_teamRosterUrl } from "../config";
+import PlayerOverviewCard from "./PlayerOverviewCard.js";
+import { fetchTeamRoster } from "../../../config";
+import Loading from "../../../assets/Loading.js";
 
 function TeamRosterList({ team }) {
   const [roster, setRoster] = useState([]);
@@ -10,15 +9,15 @@ function TeamRosterList({ team }) {
 
   useEffect(() => {
     if (!team) return;
-    async function fetchTeamRoster() {
+    async function getTeamRoster() {
       setIsLoading(true);
-      const res = await fetch(`${API_teamRosterUrl(team, API_KEY)}`);
+      const res = await fetchTeamRoster(team);
       const data = await res.json();
       setRoster(data);
       setIsLoading(false);
     }
 
-    fetchTeamRoster();
+    getTeamRoster();
   }, [team]);
 
   return isLoading ? (
