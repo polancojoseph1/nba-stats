@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { TextField, Typography, Stack, Box, Button } from "@mui/material";
 
-function LogInForm() {
+function LogInForm({ showLogIn, logInData }) {
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
 
@@ -11,12 +11,13 @@ function LogInForm() {
   }
 
   function handleFormSubmit() {
-    console.log(emailInput, passwordInput);
-    clearInput();
-  }
+    const logInCredentials = {
+      email: emailInput,
+      password: passwordInput,
+    };
+    logInData(logInCredentials);
 
-  function handleSwitchToSignUp() {
-    console.log("Switched");
+    clearInput();
   }
 
   return (
@@ -66,7 +67,7 @@ function LogInForm() {
           >
             New to NBA Stats? Try
             <span
-              onClick={handleSwitchToSignUp}
+              onClick={() => showLogIn(true)}
               onMouseOver={(e) => (e.target.style.cursor = "pointer")}
               style={{ color: "#1560BD" }}
             >

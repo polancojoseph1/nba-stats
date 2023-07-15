@@ -1,16 +1,22 @@
 import { useState } from "react";
 import NavBarLogin from "../../assets/NavBarLogin.js";
-import LogInForm from "./LogInForm.js";
-import SignUpForm from "./SignUpForm.js";
+import LogInForm from "./SignUpForm.js";
+import SignUpForm from "./LogInForm.js";
 
-function LandingPage() {
-  const [accountList, setAccountList] = useState([]);
-  const [showLogIn, setShowLogIn] = useState(true);
+function LandingPage({ accountList }) {
+  const [showLogIn, setShowLogIn] = useState(false);
+  const [logInData, setLogInData] = useState({});
+
+  console.log(logInData);
 
   return (
     <div>
       <NavBarLogin />
-      {showLogIn ? <LogInForm /> : <SignUpForm />}
+      {showLogIn ? (
+        <LogInForm showLogIn={setShowLogIn} logInData={setLogInData} />
+      ) : (
+        <SignUpForm showLogIn={setShowLogIn} />
+      )}
     </div>
   );
 }
