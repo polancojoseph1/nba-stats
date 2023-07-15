@@ -67,7 +67,7 @@ function LogInForm({ showLogIn, logInData }) {
           >
             New to NBA Stats? Try
             <span
-              onClick={() => showLogIn(true)}
+              onClick={() => showLogIn(false)}
               onMouseOver={(e) => (e.target.style.cursor = "pointer")}
               style={{ color: "#1560BD" }}
             >

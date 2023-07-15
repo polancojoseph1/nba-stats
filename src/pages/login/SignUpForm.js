@@ -74,7 +74,7 @@ function SignUpForm({ showLogIn }) {
           >
             Already have an account?
             <span
-              onClick={() => showLogIn(false)}
+              onClick={() => showLogIn(true)}
               onMouseOver={(e) => (e.target.style.cursor = "pointer")}
               style={{ color: "#1560BD" }}
             >
