@@ -6,8 +6,6 @@ function SelectTeamInput({ handleTeamInput }) {
   const [teamList, setTeamList] = useState([]);
   const [selectedTeam, setSelectedTeam] = useState("");
 
-  console.log(teamList, selectedTeam);
-
   useEffect(() => {
     async function getTeamList() {
       const res = await fetchTeamList();
@@ -27,6 +25,7 @@ function SelectTeamInput({ handleTeamInput }) {
         value={selectedTeam}
         onChange={(e) => setSelectedTeam(e.target.value)}
         fullWidth
+        size="small"
       >
         {teamList.map((team) => (
           <MenuItem key={team.Key} value={team.Key}>

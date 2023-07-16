@@ -29,7 +29,7 @@ function LogInForm({ showLogIn, logInData }) {
         padding: "2rem",
         borderRadius: "2rem",
         position: "absolute",
-        top: "25%",
+        top: "28%",
         left: "67%",
       }}
     >

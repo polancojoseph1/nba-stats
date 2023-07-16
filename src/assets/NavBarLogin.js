@@ -11,14 +11,6 @@ export default function NavBarLogin() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed">
         <Toolbar>
-          <Typography
-            variant="h4"
-            component="div"
-            sx={{ color: "black", flexGrow: 1 }}
-          >
-            NBA STATS
-          </Typography>
-
           <a
             href="https://github.com/JustinRivera-9/nba-stats"
             target="_blank"
@@ -28,6 +20,23 @@ export default function NavBarLogin() {
               <GitHubIcon fontSize="large" />
             </IconButton>
           </a>
+          <Typography
+            variant="h4"
+            noWrap
+            component="a"
+            href="/"
+            sx={{
+              ml: 2,
+              display: { xs: "flex", md: "flex" },
+              fontFamily: "monospace",
+              fontWeight: 700,
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
+            }}
+          >
+            NBA STATS
+          </Typography>
         </Toolbar>
       </AppBar>
     </Box>

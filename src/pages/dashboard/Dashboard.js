@@ -3,7 +3,7 @@ import SelectTeamInput from "./components/SelectTeamInput";
 import TeamRosterList from "./components/TeamRosterList";
 import NavBarDashboard from "../../assets/NavBarDashboard.js";
 
-function Dashboard() {
+function Dashboard({ activeAccount }) {
   const [team, setTeam] = useState("");
 
   useEffect(() => {
@@ -17,7 +17,7 @@ function Dashboard() {
 
   return (
     <>
-      <NavBarDashboard />
+      <NavBarDashboard activeAccount={activeAccount} />
       <SelectTeamInput handleTeamInput={setTeam} />
       {team && <TeamRosterList team={team} />}
     </>

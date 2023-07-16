@@ -11,19 +11,20 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
-const pages = ["Products", "Pricing", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const pages = ["Dashboard", "Watched Players", "News"];
 
-function ResponsiveAppBar() {
+function NavBarDashboard({ activeAccount }) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [activePage, setActivePage] = React.useState("");
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
+  const handleOpenNavMenu = (e) => {
+    setAnchorElNav(e.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
+  const handleOpenUserMenu = (e) => {
+    setAnchorElUser(e.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
@@ -34,12 +35,14 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
 
+  /////////////////////////////////////
+
   return (
     <AppBar position="fixed">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
-            variant="h6"
+            variant="h4"
             noWrap
             component="a"
             href="/"
@@ -123,9 +126,12 @@ function ResponsiveAppBar() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+            <Tooltip title="View GitHub Repo">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar
+                  alt={`${activeAccount.firstName} ${activeAccount.lastName}`}
+                  src="/static/images/avatar/2.jpg"
+                >{`${activeAccount.firstName[0]} ${activeAccount.lastName[0]}`}</Avatar>
               </IconButton>
             </Tooltip>
             <Menu
@@ -144,11 +150,15 @@ function ResponsiveAppBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
+              <a
+                href="https://github.com/JustinRivera-9/nba-stats"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <IconButton>
+                  <GitHubIcon fontSize="large" />
+                </IconButton>
+              </a>
             </Menu>
           </Box>
         </Toolbar>
@@ -156,4 +166,4 @@ function ResponsiveAppBar() {
     </AppBar>
   );
 }
-export default ResponsiveAppBar;
+export default NavBarDashboard;
