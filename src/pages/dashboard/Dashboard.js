@@ -18,7 +18,7 @@ function Dashboard({ activeAccount }) {
   return (
     <>
       <NavBarDashboard activeAccount={activeAccount} />
-      <SelectTeamInput handleTeamInput={setTeam} />
+      <SelectTeamInput boxWidth="25%" handleTeamInput={setTeam} />
       {team && <TeamRosterList team={team} />}
     </>
   );

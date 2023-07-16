@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { TextField, Typography, Stack, Box, Button } from "@mui/material";
+import AlertMsg from "../../assets/AlertMsg";
 
-function LogInForm({ showLogIn, logInData }) {
+function LogInForm({ showLogIn, logInData, error }) {
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
 
@@ -12,7 +13,7 @@ function LogInForm({ showLogIn, logInData }) {
 
   function handleFormSubmit() {
     const logInCredentials = {
-      email: emailInput,
+      email: emailInput.toLowerCase(),
       password: passwordInput,
     };
     logInData(logInCredentials);
@@ -74,6 +75,11 @@ function LogInForm({ showLogIn, logInData }) {
               <strong> Signing Up!</strong>
             </span>
           </Typography>
+          {error && (
+            <AlertMsg type="error" boxStyle="filled">
+              Account not found. Please try again.
+            </AlertMsg>
+          )}
         </Stack>
       </form>
     </Box>

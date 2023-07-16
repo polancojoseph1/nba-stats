@@ -10,6 +10,7 @@ function LandingPage({
   AddNewAccount,
 }) {
   const [showLogIn, setShowLogIn] = useState(true);
+  const [error, setError] = useState(false);
 
   // This handles validating the log in data
   function handleLogIn(logInData) {
@@ -27,6 +28,9 @@ function LandingPage({
       setActiveAccount(activeAccount);
       setIsLoggedIn(true);
     }
+
+    if (!existingAccount) setError(true);
+    setTimeout(() => setError(false), 5000);
   }
 
   // This adds new account to account list array
@@ -40,7 +44,11 @@ function LandingPage({
     <div>
       <NavBarLogin />
       {showLogIn ? (
-        <LogInForm showLogIn={setShowLogIn} logInData={handleLogIn} />
+        <LogInForm
+          showLogIn={setShowLogIn}
+          logInData={handleLogIn}
+          error={error}
+        />
       ) : (
         <SignUpForm showLogIn={setShowLogIn} signUpData={handleSignUp} />
       )}

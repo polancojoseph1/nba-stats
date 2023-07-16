@@ -19,7 +19,7 @@ export default function App() {
       favoriteTeam: "LAL",
     },
   ]);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [activeAccount, setActiveAccount] = useState({
     firstName: "Justin",
     lastName: "Rivera",
@@ -39,9 +39,9 @@ export default function App() {
       ) : (
         <LandingPage
           setIsLoggedIn={setIsLoggedIn}
-          accountList={accountList}
           setActiveAccount={setActiveAccount}
           AddNewAccount={handleNewAccount}
+          accountList={accountList}
         />
       )}
     </div>

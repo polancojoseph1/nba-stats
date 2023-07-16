@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Box, TextField, MenuItem } from "@mui/material";
 import { fetchTeamList } from "../../../config";
 
-function SelectTeamInput({ handleTeamInput }) {
+function SelectTeamInput({ handleTeamInput, children, boxWidth }) {
   const [teamList, setTeamList] = useState([]);
   const [selectedTeam, setSelectedTeam] = useState("");
 
@@ -18,9 +18,9 @@ function SelectTeamInput({ handleTeamInput }) {
   }, [handleTeamInput, selectedTeam]);
 
   return (
-    <Box width="250px">
+    <Box width={boxWidth}>
       <TextField
-        label="Select a Team"
+        label={children}
         select
         value={selectedTeam}
         onChange={(e) => setSelectedTeam(e.target.value)}
