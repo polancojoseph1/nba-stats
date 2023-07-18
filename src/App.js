@@ -9,14 +9,18 @@ export default function App() {
       lastName: "Rivera",
       email: "jman199610@yahoo.com",
       password: "Justin123",
-      favoriteTeam: "DEN",
+      homeTeam: "DEN",
+      favoritePlayers: [
+        20000485, 20001441, 20000497, 20001666, 20000617, 20000884,
+      ],
     },
     {
       firstName: "John",
       lastName: "Doe",
       email: "john.doe@gmail.com",
       password: "John123",
-      favoriteTeam: "LAL",
+      homeTeam: "LAL",
+      favoritePlayers: [20000884, 20001460, 20000441, 20000619],
     },
   ]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -26,6 +30,9 @@ export default function App() {
     email: "jman199610@yahoo.com",
     password: "Justin123",
     favoriteTeam: "DEN",
+    favoritePlayers: [
+      20000485, 20001441, 20000497, 20001666, 20000617, 20000884,
+    ],
   });
 
   function handleNewAccount(account) {
@@ -33,7 +40,7 @@ export default function App() {
   }
 
   return (
-    <div>
+    <>
       {isLoggedIn ? (
         <Dashboard activeAccount={activeAccount} />
       ) : (
@@ -44,6 +51,8 @@ export default function App() {
           accountList={accountList}
         />
       )}
-    </div>
+    </>
   );
 }
+
+// NEWS BY PLAYER

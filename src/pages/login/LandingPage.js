@@ -2,6 +2,7 @@ import { useState } from "react";
 import NavBarLogin from "../../assets/NavBarLogin.js";
 import SignUpForm from "./SignUpForm.js";
 import LogInForm from "./LogInForm.js";
+import Grid from "@mui/material/Unstable_Grid2";
 
 function LandingPage({
   accountList,
@@ -41,7 +42,7 @@ function LandingPage({
   }
 
   return (
-    <div>
+    <Grid sx={{ flexGrow: 1 }}>
       <NavBarLogin />
       {showLogIn ? (
         <LogInForm
@@ -52,7 +53,7 @@ function LandingPage({
       ) : (
         <SignUpForm showLogIn={setShowLogIn} signUpData={handleSignUp} />
       )}
-    </div>
+    </Grid>
   );
 }
 

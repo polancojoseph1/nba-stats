@@ -10,6 +10,11 @@ export const fetchTeamRoster = (team) =>
 export const fetchTeamList = () =>
   fetch(`https://api.sportsdata.io/v3/nba/scores/json/teams?key=${API_KEY}`);
 
+export const fetchPlayerInfo = (playerID) =>
+  fetch(
+    `https://api.sportsdata.io/v3/nba/scores/json/Player/${playerID}?key=${API_KEY}`
+  );
+
 export const formatName = (str) => {
   const firstLetter = str[0].toUpperCase();
   const rest = str.toLowerCase().slice(1);

@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -13,12 +14,12 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
-const pages = ["Dashboard", "Watched Players", "News"];
+const pages = ["Dashboard", "Favorites", "Find a Player", "News"];
 
 function NavBarDashboard({ activeAccount }) {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const [activePage, setActivePage] = React.useState("");
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
+  // const [activePage, setActivePage] = useState("");
 
   const handleOpenNavMenu = (e) => {
     setAnchorElNav(e.currentTarget);

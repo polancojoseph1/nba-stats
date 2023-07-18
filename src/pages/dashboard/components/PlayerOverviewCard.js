@@ -2,7 +2,7 @@ import { Typography } from "@mui/material";
 
 function PlayerOverviewCard({ info }) {
   const {
-    // PlayerID: playerID,
+    PlayerID: playerID,
     Jersey: jerseyNum,
     Position: position,
     FirstName: firstName,
