@@ -8,10 +8,10 @@ function FavoritePlayerList({ favorites }) {
         return i > 7 ? null : (
           <>
             <Avatar
-              sx={{ width: 72, height: 72 }}
+              sx={{ width: 75, height: 75 }}
               src={player.PhotoUrl}
               alt={`${player.FirstName} ${player.LastName}`}
-              key={player.PlayerId}
+              key={player.PlayerID}
             />
             <Divider orientation="vertical" flexItem />
           </>

@@ -52,12 +52,12 @@ function FavoritesSection({ activeAccount }) {
           alignItems="center"
         >
           <Stack
-            ml={3}
+            ml={0}
             direction="row"
             spacing={{ xs: 2, sm: 2, md: 5, lg: 5, xl: 5 }}
           >
             {/* LIST OF FAVORITES COMPONENTS */}
-            <FavoritePlayerList favorites={favoriteList} />{" "}
+            <FavoritePlayerList favorites={favoriteList} />
             <Button sx={{}} variant="outlined">
               View All
             </Button>

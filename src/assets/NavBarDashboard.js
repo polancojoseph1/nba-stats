@@ -14,12 +14,10 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
-const pages = ["Dashboard", "Favorites", "Find a Player", "News"];
-
-function NavBarDashboard({ activeAccount }) {
+function NavBarDashboard({ activeAccount, setPage }) {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
-  // const [activePage, setActivePage] = useState("");
+  const pages = ["Dashboard", "Favorites", "Search", "News"];
 
   const handleOpenNavMenu = (e) => {
     setAnchorElNav(e.currentTarget);
@@ -28,8 +26,9 @@ function NavBarDashboard({ activeAccount }) {
     setAnchorElUser(e.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (e) => {
     setAnchorElNav(null);
+    setPage(e.target.textContent);
   };
 
   const handleCloseUserMenu = () => {
