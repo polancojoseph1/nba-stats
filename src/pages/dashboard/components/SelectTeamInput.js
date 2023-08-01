@@ -7,14 +7,21 @@ function SelectTeamInput({ handleTeamInput, children, boxWidth }) {
   const [selectedTeam, setSelectedTeam] = useState("");
 
   useEffect(() => {
-    async function getTeamList() {
-      const res = await fetchTeamList();
-      const data = await res.json();
-      setTeamList(data);
-    }
-    handleTeamInput(selectedTeam);
+    try {
+      async function getTeamList() {
+        const res = await fetchTeamList();
+        // ADD ERROR HANDLING
 
-    getTeamList();
+        const data = await res.json();
+        // ADD ERROR HANDLING
+
+        setTeamList(data);
+      }
+      handleTeamInput(selectedTeam);
+      getTeamList();
+    } catch (err) {
+      console.error(err.message);
+    }
   }, [handleTeamInput, selectedTeam]);
 
   return (

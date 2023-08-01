@@ -23,17 +23,8 @@ export default function App() {
       favoritePlayers: [20000884, 20001460, 20000441, 20000619],
     },
   ]);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [activeAccount, setActiveAccount] = useState({
-    firstName: "Justin",
-    lastName: "Rivera",
-    email: "jman199610@yahoo.com",
-    password: "Justin123",
-    favoriteTeam: "DEN",
-    favoritePlayers: [
-      20000485, 20001441, 20000497, 20001666, 20000617, 20000884,
-    ],
-  });
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [activeAccount, setActiveAccount] = useState(accountList[0]);
 
   function handleNewAccount(account) {
     setAccountList((accountList) => [...accountList, account]);

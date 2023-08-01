@@ -8,16 +8,24 @@ function TeamRosterList({ team }) {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if (!team) return;
-    async function getTeamRoster() {
-      setIsLoading(true);
-      const res = await fetchTeamRoster(team);
-      const data = await res.json();
-      setRoster(data);
-      setIsLoading(false);
-    }
+    try {
+      if (!team) return;
+      async function getTeamRoster() {
+        setIsLoading(true);
+        const res = await fetchTeamRoster(team);
+        // ADD ERROR HANDLING
 
-    getTeamRoster();
+        const data = await res.json();
+        // ADD ERROR HANDLING
+
+        setRoster(data);
+        setIsLoading(false);
+      }
+
+      getTeamRoster();
+    } catch (err) {
+      console.error(err.message);
+    }
   }, [team]);
 
   return isLoading ? (

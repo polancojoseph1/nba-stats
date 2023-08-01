@@ -107,7 +107,7 @@ function NavBarDashboard({ activeAccount }) {
               flexGrow: 1,
               fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: ".3rem",
+              letterSpacing: ".4rem",
               color: "inherit",
               textDecoration: "none",
             }}
