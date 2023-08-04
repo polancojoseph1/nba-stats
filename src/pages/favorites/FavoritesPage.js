@@ -30,7 +30,7 @@ function FavoritesPage({ accountFavorites }) {
     }
   }, [accountFavorites]);
 
-  console.log(favoritePlayerData);
+  //   console.log(favoritePlayerData);
   return (
     <>
       {favoritePlayerData.length > 0 ? (

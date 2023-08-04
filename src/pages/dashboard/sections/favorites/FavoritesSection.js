@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import Grid from "@mui/material/Unstable_Grid2";
-import { Typography, Stack, Button } from "@mui/material";
+import { Typography, Stack, Button, Avatar, Divider } from "@mui/material";
 import Loading from "../../../../assets/Loading.js";
 import { fetchPlayerInfo } from "../../../../config.js";
-import FavoritePlayerList from "./FavoritePlayerList.js";
 
 function FavoritesSection({ activeAccount }) {
   const [favoriteList, setFavoriteList] = useState([]);
@@ -56,8 +55,21 @@ function FavoritesSection({ activeAccount }) {
             direction="row"
             spacing={{ xs: 2, sm: 2, md: 5, lg: 5, xl: 5 }}
           >
-            {/* LIST OF FAVORITES COMPONENTS */}
-            <FavoritePlayerList favorites={favoriteList} />
+            {/* LIST OF FAVORITES AVATARS */}
+            {favoriteList.length > 7 &&
+              favoriteList.map((player, i) => {
+                return i > 7 ? null : (
+                  <>
+                    <Avatar
+                      sx={{ width: 75, height: 75 }}
+                      src={player.PhotoUrl}
+                      alt={`${player.FirstName} ${player.LastName}`}
+                      key={player.PlayerID}
+                    />
+                    <Divider orientation="vertical" flexItem />
+                  </>
+                );
+              })}
             <Button sx={{}} variant="outlined">
               View All
             </Button>
