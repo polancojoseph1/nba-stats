@@ -1,20 +1,25 @@
-import { Avatar } from "@mui/material";
+import { Avatar, Stack, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 
 function FavoritesCard({ player }) {
   // Check if creating the new object on each iteration affects performance
+  console.log(player);
+
   return (
-    <>
-      <Grid container pt={2} xs={12} md={12} lg={12}>
-        <Grid>
-          <Avatar
-            sx={{ width: 125, height: 125 }}
-            src={player.PhotoUrl}
-            alt={`${player.FirstName} ${player.LastName}`}
-          />
-        </Grid>
+    <div style={{ border: "1px solid red" }}>
+      <Grid xs={12} md={6} lg={6}>
+        <Avatar
+          sx={{ width: 100, height: 100 }}
+          src={player.PhotoUrl}
+          alt={`${player.FirstName} ${player.LastName}`}
+        />
       </Grid>
-    </>
+      <Grid xs={12} md={6} lg={6}>
+        <Stack>
+          <Typography>PPG: 25.6</Typography>
+        </Stack>
+      </Grid>
+    </div>
   );
 }
 

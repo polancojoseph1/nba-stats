@@ -8,41 +8,53 @@ function FavoritesPage({ accountFavorites }) {
   //   const [loading, setLoading] = useState(false);
   const [favoritePlayerData, setFavoritePlayerData] = useState([]);
 
+  const emptyFavoritesStr = (
+    <>
+      <h1 style={{ marginTop: "6rem" }}>
+        You currently don't have any favorite players
+      </h1>
+      <h2>Try starting with your favorite team!🏀</h2>
+    </>
+  );
+
   useEffect(() => {
     try {
-      //   setLoading(true);
       async function getPlayerList() {
-        accountFavorites.forEach(async (player) => {
+        accountFavorites.map(async (player) => {
           const res = await fetchPlayerInfo(player);
           // ADD ERROR HANDLING
 
           const data = await res.json();
           // ADD ERROR HANDLING
+          console.log("In effect");
 
-          if (accountFavorites.includes(data)) return;
           setFavoritePlayerData((prevData) => [...prevData, data]);
         });
       }
       getPlayerList();
-      //   setLoading(false);
     } catch (err) {
       console.error(err.message);
     }
-  }, [accountFavorites]);
+  }, []);
 
   //   console.log(favoritePlayerData);
   return (
     <>
       {favoritePlayerData.length > 0 ? (
         <>
-          <Grid container sx={{ flexGrow: 1 }} spacing={1}>
+          <Grid container sx={{ flexGrow: 1 }}>
             {favoritePlayerData.map((player) => (
               <Grid
-                p={1}
-                sm={5}
-                md={4}
-                lg={3}
-                sx={{ border: "1px solid red", height: "20rem" }}
+                // p={0.5}
+                sm={12}
+                md={12}
+                lg={12}
+                sx={{
+                  backgroundColor: "#485461",
+                  backgroundImage:
+                    "linear-gradient(315deg, #485461 0%, #28313b 74%)",
+                  height: "20rem",
+                }}
                 justifyContent="center"
                 alignItems="center"
               >
@@ -52,12 +64,7 @@ function FavoritesPage({ accountFavorites }) {
           </Grid>
         </>
       ) : (
-        <>
-          <h1 style={{ marginTop: "6rem" }}>
-            You currently don't have any favorite players
-          </h1>
-          <h2>Try starting with your favorite team!🏀</h2>
-        </>
+        emptyFavoritesStr
       )}
     </>
   );

@@ -10,9 +10,7 @@ export default function App() {
       email: "jman199610@yahoo.com",
       password: "Justin123",
       homeTeam: "DEN",
-      favoritePlayers: [
-        20000485, 20001441, 20000497, 20001666, 20000617, 20000884,
-      ],
+      favoritePlayers: [20000485],
     },
     {
       firstName: "John",
